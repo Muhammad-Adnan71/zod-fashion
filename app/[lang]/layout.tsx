@@ -30,54 +30,54 @@ export const metadata: Metadata = {
     "Have a trendy design? Want a low MOQ at a reasonable price? Zod can custom design your abaya and deliver to your doorstep at wholesale price.",
 };
 
-// export async function getStaticPaths() {
-//   // When this is true (in preview environments) don't
-//   // prerender any static pages
-//   // (faster builds, but slower initial page load)
-//   // if (process.env.SKIP_BUILD_STATIC_GENERATION) {
-//   //   return {
-//   //     paths: [
-//   //       {
-//   //         params: {
-//   //           lang: "en",
-//   //         },
-//   //       },
-//   //       {
-//   //         params: {
-//   //           lang: "fr",
-//   //         },
-//   //       },
-//   //       {
-//   //         params: {
-//   //           lang: "de",
-//   //         },
-//   //       },
-//   //     ],
-//   //     fallback: false,
-//   //   };
-//   // }
+export async function getStaticPaths() {
+  // When this is true (in preview environments) don't
+  // prerender any static pages
+  // (faster builds, but slower initial page load)
+  if (process.env.SKIP_BUILD_STATIC_GENERATION) {
+    return {
+      paths: [
+        {
+          params: {
+            lang: "en",
+          },
+        },
+        {
+          params: {
+            lang: "fr",
+          },
+        },
+        {
+          params: {
+            lang: "de",
+          },
+        },
+      ],
+      fallback: false,
+    };
+  }
 
-//   // return {
-//   //   paths: [
-//   //     {
-//   //       params: {
-//   //         lang: "en",
-//   //       },
-//   //     },
-//   //     {
-//   //       params: {
-//   //         lang: "de",
-//   //       },
-//   //     },
-//   //     {
-//   //       params: {
-//   //         lang: "fr",
-//   //       },
-//   //     },
-//   //   ],
-//   //   fallback: false,
-//   // };
-// }
+  return {
+    paths: [
+      {
+        params: {
+          lang: "en",
+        },
+      },
+      {
+        params: {
+          lang: "de",
+        },
+      },
+      {
+        params: {
+          lang: "fr",
+        },
+      },
+    ],
+    fallback: "blocking",
+  };
+}
 export default async function RootLayout({
   children,
   params: { lang },
