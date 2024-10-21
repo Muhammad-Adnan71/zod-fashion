@@ -1,26 +1,26 @@
 "use client";
 import React from "react";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import IPInfo from "ip-info-react";
+import dynamic from "next/dynamic";
 
 // Dynamically import Google Analytics and Google Tag Manager
-// const GoogleAnalytics = dynamic(
-//   () => import("@next/third-parties/google").then((mod) => mod.GoogleAnalytics),
-//   {
-//     ssr: false, // Disable server-side rendering for this component
-//     loading: () => null, // Optional loading component
-//   }
-// );
+const GoogleAnalytics = dynamic(
+  () => import("@next/third-parties/google").then((mod) => mod.GoogleAnalytics),
+  {
+    ssr: false, // Disable server-side rendering for this component
+    loading: () => null, // Optional loading component
+  }
+);
 
-// const GoogleTagManager = dynamic(
-//   () =>
-//     import("@next/third-parties/google").then((mod) => mod.GoogleTagManager),
-//   {
-//     ssr: false, // Disable server-side rendering for this component
-//     loading: () => null,
-//   }
-// );
+const GoogleTagManager = dynamic(
+  () =>
+    import("@next/third-parties/google").then((mod) => mod.GoogleTagManager),
+  {
+    ssr: false, // Disable server-side rendering for this component
+    loading: () => null,
+  }
+);
 
 function WebLayout({ children }: { children: any }) {
   // const [loadAnalytics, setLoadAnalytics] = useState(false);
