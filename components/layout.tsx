@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import IPInfo from "ip-info-react";
-import Script from "next/script";
 
 // Dynamically import Google Analytics and Google Tag Manager
 // const GoogleAnalytics = dynamic(
@@ -54,8 +54,8 @@ function WebLayout({ children }: { children: any }) {
         }}
       >
         <>
-          {/* <GoogleAnalytics gaId="G-RHXJ36L4EB" /> */}
-          {/* <GoogleTagManager gtmId="GTM-KR9SVGW2" /> */}
+          <GoogleAnalytics gaId="G-RHXJ36L4EB" />
+          <GoogleTagManager gtmId="GTM-KR9SVGW2" />
 
           {/* <Script
             async
