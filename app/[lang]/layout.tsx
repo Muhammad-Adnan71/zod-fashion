@@ -100,7 +100,7 @@ export default async function RootLayout({
   // </script>
 
   return (
-    <html lang="en">
+    <html className={"s"} lang="en">
       <body className={`bg-white ${popinSans.variable} antialiased`}>
         <Suspense>
           <WebLayout>
