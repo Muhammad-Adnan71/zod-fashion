@@ -75,7 +75,7 @@ export async function getStaticPaths() {
         },
       },
     ],
-    fallback: "blocking",
+    fallback: false,
   };
 }
 export default async function RootLayout({
