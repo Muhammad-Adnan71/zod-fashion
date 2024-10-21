@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React from "react";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
@@ -58,7 +57,7 @@ function WebLayout({ children }: { children: any }) {
           {/* <GoogleAnalytics gaId="G-RHXJ36L4EB" /> */}
           {/* <GoogleTagManager gtmId="GTM-KR9SVGW2" /> */}
 
-          <Script
+          {/* <Script
             async
             defer
             src="https://www.googletagmanager.com/gtag/js?id=G-RHXJ36L4EB"
@@ -94,7 +93,7 @@ function WebLayout({ children }: { children: any }) {
               width="0"
               style={{ display: "none", visibility: "hidden" }}
             ></iframe>
-          </noscript>
+          </noscript> */}
         </>
 
         <IPInfo>{children}</IPInfo>
