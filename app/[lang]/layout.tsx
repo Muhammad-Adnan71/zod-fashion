@@ -19,7 +19,7 @@ import dynamic from "next/dynamic";
 const WebLayout = dynamic(
   () => import("@components/layout").then((mod) => mod.default),
   {
-    ssr: true, // Disable server-side rendering for this component
+    ssr: false, // Disable server-side rendering for this component
     loading: () => null,
   }
 );
@@ -27,21 +27,21 @@ const FacebookPixelEvents = dynamic(
   () =>
     import("@components/pixel-event").then((mod) => mod.FacebookPixelEvents),
   {
-    ssr: true, // Disable server-side rendering for this component
+    ssr: false, // Disable server-side rendering for this component
     loading: () => null,
   }
 );
 const Header = dynamic(
   () => import("@components/header").then((mod) => mod.default),
   {
-    ssr: true, // Disable server-side rendering for this component
+    ssr: false, // Disable server-side rendering for this component
     loading: () => null,
   }
 );
 const Footer = dynamic(
   () => import("@components/footer").then((mod) => mod.default),
   {
-    ssr: true, // Disable server-side rendering for this component
+    ssr: false, // Disable server-side rendering for this component
     loading: () => null,
   }
 );
@@ -49,14 +49,14 @@ const Footer = dynamic(
 const ModalProvider = dynamic(
   () => import("@context/ModalContext").then((mod) => mod.ModalProvider),
   {
-    ssr: true, // Disable server-side rendering for this component
+    ssr: false, // Disable server-side rendering for this component
     loading: () => null,
   }
 );
 const ToastContainer = dynamic(
   () => import("react-toastify").then((mod) => mod.ToastContainer),
   {
-    ssr: true, // Disable server-side rendering for this component
+    ssr: false, // Disable server-side rendering for this component
     loading: () => null,
   }
 );
