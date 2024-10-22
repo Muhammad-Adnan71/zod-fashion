@@ -1,19 +1,65 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./styles/globals.css";
-import Header from "../../components/header";
-import Footer from "../../components/footer";
-import { getDictionary } from "../../utils/dictionary";
+// import Header from "@components/header";
+// import Footer from "@components/footer";
+import { getDictionary } from "@utils/dictionary";
 import { Locale } from "../../i18n.config";
-import { getLocaleFromServer } from "../../utils/funtions";
+import { getLocaleFromServer } from "@utils/funtions";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "@splidejs/react-splide/css";
-import { ModalProvider } from "../../context/ModalContext";
-import WebLayout from "@components/layout";
+// import { ModalProvider } from "@context/ModalContext";
+// import WebLayout from "@components/layout";
 import { Suspense } from "react";
-import { FacebookPixelEvents } from "@components/pixel-event";
-import { ToastContainer } from "react-toastify";
-import Script from "next/script";
+// import { FacebookPixelEvents } from "@components/pixel-event";
+// import { ToastContainer } from "react-toastify";
+// import Script from "next/script";
+import dynamic from "next/dynamic";
+
+const WebLayout = dynamic(
+  () => import("@components/layout").then((mod) => mod.default),
+  {
+    ssr: true, // Disable server-side rendering for this component
+    loading: () => null,
+  }
+);
+const FacebookPixelEvents = dynamic(
+  () =>
+    import("@components/pixel-event").then((mod) => mod.FacebookPixelEvents),
+  {
+    ssr: true, // Disable server-side rendering for this component
+    loading: () => null,
+  }
+);
+const Header = dynamic(
+  () => import("@components/header").then((mod) => mod.default),
+  {
+    ssr: true, // Disable server-side rendering for this component
+    loading: () => null,
+  }
+);
+const Footer = dynamic(
+  () => import("@components/footer").then((mod) => mod.default),
+  {
+    ssr: true, // Disable server-side rendering for this component
+    loading: () => null,
+  }
+);
+
+const ModalProvider = dynamic(
+  () => import("@context/ModalContext").then((mod) => mod.ModalProvider),
+  {
+    ssr: true, // Disable server-side rendering for this component
+    loading: () => null,
+  }
+);
+const ToastContainer = dynamic(
+  () => import("react-toastify").then((mod) => mod.ToastContainer),
+  {
+    ssr: true, // Disable server-side rendering for this component
+    loading: () => null,
+  }
+);
 
 const popinSans = Poppins({
   variable: "--font-popins",
@@ -78,6 +124,7 @@ export const metadata: Metadata = {
 //     fallback: false,
 //   };
 // }
+
 export default async function RootLayout({
   children,
   params: { lang },
