@@ -9,20 +9,20 @@ import { getLocaleFromServer } from "@utils/funtions";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "@splidejs/react-splide/css";
 // import { ModalProvider } from "@context/ModalContext";
-// import WebLayout from "@components/layout";
+import WebLayout from "@components/layout";
 import { Suspense } from "react";
 // import { FacebookPixelEvents } from "@components/pixel-event";
 // import { ToastContainer } from "react-toastify";
 // import Script from "next/script";
 import dynamic from "next/dynamic";
 
-const WebLayout = dynamic(
-  () => import("@components/layout").then((mod) => mod.default),
-  {
-    ssr: true, // Disable server-side rendering for this component
-    loading: () => null,
-  }
-);
+// const WebLayout = dynamic(
+//   () => import("@components/layout").then((mod) => mod.default),
+//   {
+//     ssr: true, // Disable server-side rendering for this component
+//     loading: () => null,
+//   }
+// );
 const FacebookPixelEvents = dynamic(
   () =>
     import("@components/pixel-event").then((mod) => mod.FacebookPixelEvents),
