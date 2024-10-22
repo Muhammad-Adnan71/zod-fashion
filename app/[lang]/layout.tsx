@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./styles/globals.css";
-// import Header from "@components/header";
-// import Footer from "@components/footer";
+import Header from "@components/header";
+import Footer from "@components/footer";
 import { getDictionary } from "@utils/dictionary";
 import { Locale } from "../../i18n.config";
 import { getLocaleFromServer } from "@utils/funtions";
@@ -19,7 +19,7 @@ import dynamic from "next/dynamic";
 const WebLayout = dynamic(
   () => import("@components/layout").then((mod) => mod.default),
   {
-    ssr: false, // Disable server-side rendering for this component
+    ssr: true, // Disable server-side rendering for this component
     loading: () => null,
   }
 );
@@ -31,25 +31,25 @@ const FacebookPixelEvents = dynamic(
     loading: () => null,
   }
 );
-const Header = dynamic(
-  () => import("@components/header").then((mod) => mod.default),
-  {
-    ssr: false, // Disable server-side rendering for this component
-    loading: () => null,
-  }
-);
-const Footer = dynamic(
-  () => import("@components/footer").then((mod) => mod.default),
-  {
-    ssr: false, // Disable server-side rendering for this component
-    loading: () => null,
-  }
-);
+// const Header = dynamic(
+//   () => import("@components/header").then((mod) => mod.default),
+//   {
+//     ssr: false, // Disable server-side rendering for this component
+//     loading: () => null,
+//   }
+// );
+// const Footer = dynamic(
+//   () => import("@components/footer").then((mod) => mod.default),
+//   {
+//     ssr: false, // Disable server-side rendering for this component
+//     loading: () => null,
+//   }
+// );
 
 const ModalProvider = dynamic(
   () => import("@context/ModalContext").then((mod) => mod.ModalProvider),
   {
-    ssr: false, // Disable server-side rendering for this component
+    ssr: true, // Disable server-side rendering for this component
     loading: () => null,
   }
 );
